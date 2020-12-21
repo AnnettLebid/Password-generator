@@ -20,7 +20,7 @@
         <form>
           <div class="form-group mb-2">
             <label for="formControlRange">Password length(<span id = "password-length">10</span>)</label>
-            <input type="range" class="form-control-range" id="param-1" value = "10">
+            <input type="range" class="form-control-range" id="param-1" value = "10" max = "50">
           </div>
           <div class="checkbox">
             <label>
@@ -29,32 +29,31 @@
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" id = "param-3"> Include Uppercase characters
+              <input type="checkbox" id = "param-3" checked> Include Lowercase characters
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" id = "param-4" checked> Include Lowercase characters
+              <input type="checkbox" id = "param-4"> Include Uppercase characters
             </label>
           </div>
           <div class="checkbox">
             <label>
               <input type="checkbox" id = "param-5"> Include Special Characters
             </label>
-          </div>          
-        <button type="submit" class="btn btn-primary mt-4">Generate Password</button>
-        </form>
+          </div>      
+        </form> 
+        <button type="button" class="btn btn-primary mt-4" id = "generator">Generate Password</button>       
       </div>
     </div>  
     <div class="row">
       <div class="col-lg-12">
-        <div id = "out">
-          <p>Your password:</p>
-          <p>51544dzgv</p>
-        </div>
+        <div class = "mt-4">Your password:</div>
+        <div id = "out"></div>      
       </div>
     </div>
   </div>
+  <script src = "index.js"></script>
   
 </body>
 </html>
