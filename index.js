@@ -8,6 +8,7 @@ document.getElementById('param-1').oninput = function() {
 }
 
 document.getElementById('generator').onclick = generatePass;
+document.querySelector("#copy").addEventListener("click", copy);
 
 const compareRandom = (a,b) => Math.random() - 0.5;
 
@@ -15,6 +16,20 @@ const randomInteger = (min, max) => {
   let rand = min - 0.5 + Math.random() * (max - min +1);
   rand  = Math.round(rand);
   return rand;
+}
+
+function copy (){
+  const textarea = document.createElement('textarea'); 
+  let passCopy = document.querySelector("#out").innerText;
+  console.log(passCopy)
+
+  if(!passCopy) { return; }
+
+  textarea.value = passCopy;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  textarea.remove();  
 }
 
 generatePass();
@@ -34,16 +49,14 @@ function generatePass() {
     result = [...result, ...specialCharacters];
   }
 
-  document.getElementById('out').innerHTML = '';
-  for (let j = 0; j < 6; j++) {
+  document.getElementById('out').innerHTML = ''; 
     let password = '';
     let passwordLength = parseInt(document.getElementById('param-1').value);
   
     for (let i = 0; i < passwordLength; i++){
       password += result[randomInteger(0, result.length - 1)];
     }  
-    document.getElementById('out').innerHTML += `<p>${password}</p>`;
-  }
+    document.getElementById('out').innerHTML += password; 
 }
 
 

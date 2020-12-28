@@ -1,3 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background-image: url('../img/technology-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1.2rem;
+}
+
+.app-wrapper {
+  background-color: #58b1b8;
+  width: 25%;
+  min-width: 450px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  margin-top: 20px;
+}
+
+.checkbox-success input[type="checkbox"]:checked+label::before {
+  background-color: #5cb85c !important;
+  border-color: #5cb85c;
+}
+
+.checkbox-success input[type="checkbox"]:checked+label::after {
+  color: #fff;
+}
+
+button {
+  display: inline-block;
+  text-decoration: none;
+  min-width: 250px;
+  text-align: center;
+  padding: 15px 40px;
+  font-size: 150%;
+  border-radius: 35px;
+  border: 1px #2ecc71;
+  font-family: sans-serif;
+  background: linear-gradient(90deg, #2ecc71, #3498db, #2ecc71);
+  background-size: 400%;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+button:hover {
+  animation: colors 8s infinite;
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+
+button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #2ecc71, #3498db, #2ecc71);
+  border-radius: 40px;
+  /* z-index: -1; */
+  transition: all .4s;
+  opacity: 0;
+}
+
+button:hover:before {
+  filter: blur(50px);
+  opacity: 1;
+  animation: colors 4s infinite;
+}
+
+.ouput {
+  width: 100%;
+  min-width: 250px;
+  padding: 15px 10px 10px 20px;
+  font-size: 15px;
+  color: white;
+  background-color: #69b5bb;
+  border: 1px solid #46adb4;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.copy-button {
+  margin-left: -40px;
+  padding-top: 25px;
+}
+
+.copy-button:hover {
+  cursor: pointer;
+}
+
+/* 
 #out {
   margin-top: 30px;
-}
+} */
