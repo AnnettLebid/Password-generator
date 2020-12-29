@@ -1,7 +1,7 @@
-const numbersArr = [1,2,3,4,5,6,7,8,9,0];
-const lowerCaseCharArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-const upperCaseChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-const specialCharacters = ['!', '@', '#', '$', '%', '&', '*']
+const numbers = [1,2,3,4,5,6,7,8,9,0];
+const lowerCaseChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const upperCaseChars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const specialChars = ['!', '@', '#', '$', '%', '&', '*']
 
 document.getElementById('param-1').oninput = function() {  
   document.getElementById('password-length').innerHTML = this.value;
@@ -35,18 +35,24 @@ function copy (){
 generatePass();
 
 function generatePass() {
+  let checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+  if (checkboxes.length === 0) { 
+    document.getElementById('out').innerHTML = ''; 
+    return; 
+  }
+
   let result = [];
   if(document.getElementById('param-2').checked){
-    result = [...result, ...numbersArr];
+    result = [...result, ...numbers];
   }
   if(document.getElementById('param-3').checked){
-    result = [...result, ...lowerCaseCharArr];
+    result = [...result, ...lowerCaseChars];
   }
   if(document.getElementById('param-4').checked){
-    result = [...result, ...upperCaseChar];
+    result = [...result, ...upperCaseChars];
   }
   if(document.getElementById('param-5').checked){
-    result = [...result, ...specialCharacters];
+    result = [...result, ...specialChars];
   }
 
   document.getElementById('out').innerHTML = ''; 

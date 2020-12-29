@@ -13,32 +13,44 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-size: 1.2rem;
+  min-height: 100vh;
 }
 
-.app-wrapper {
+.app-container {
   background-color: #58b1b8;
-  width: 25%;
-  min-width: 450px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   margin-top: 20px;
+  border: 25px red;
 }
 
-.checkbox-success input[type="checkbox"]:checked+label::before {
-  background-color: #5cb85c !important;
-  border-color: #5cb85c;
+.result-container {
+  height: 50px;
+  width: 100%;
+  min-width: 200px;
+  padding: 10px 20px 10px 15px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  background-color: #69b5bb;
+  border: 1px solid #46adb4;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
 }
 
-.checkbox-success input[type="checkbox"]:checked+label::after {
-  color: #fff;
+.settings {
+  display: flex;
+  flex-direction: column;
 }
 
 button {
   display: inline-block;
   text-decoration: none;
-  min-width: 250px;
+  /* min-width: 250px; */
   text-align: center;
   padding: 15px 40px;
   font-size: 150%;
@@ -54,6 +66,7 @@ button {
 
 button:hover {
   animation: colors 8s infinite;
+  outline-width: 0;
 }
 
 @keyframes colors {
@@ -79,37 +92,43 @@ button:before {
   /* z-index: -1; */
   transition: all .4s;
   opacity: 0;
+  outline-width: 0;
 }
 
 button:hover:before {
   filter: blur(50px);
   opacity: 1;
   animation: colors 4s infinite;
+  outline-width: 0;
+}
+
+button:focus {
+  outline-width: 0;
 }
 
 .ouput {
-  width: 100%;
-  min-width: 250px;
-  padding: 15px 10px 10px 20px;
-  font-size: 15px;
-  color: white;
-  background-color: #69b5bb;
-  border: 1px solid #46adb4;
-  outline: none;
-  border-radius: 20px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  vertical-align: middle;
 }
 
 .copy-button {
-  margin-left: -40px;
-  padding-top: 25px;
+  vertical-align: middle;
+}
+
+.copy-button:active {
+  transform: scale(.9);
 }
 
 .copy-button:hover {
   cursor: pointer;
 }
 
-/* 
-#out {
-  margin-top: 30px;
-} */
+@media only screen and (max-width: 480px) {
+  button {
+    font-size: 110%;
+    padding: 10px 20px;
+  }
+
+  .app-container {
+    padding: 25px 15px;
+  }
+}
